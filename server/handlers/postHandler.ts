@@ -1,10 +1,10 @@
 import { db } from '../datastore/Datastore';
 import { ExpressHandler, Post } from '../types';
 import crypto from 'crypto';
-import { CreatePostRequest, CreatePostResponse } from '../api';
+import { CreatePostRequest, CreatePostResponse, ListPostsRequest, ListPostsResponse } from '../api';
 
 
-const listPostsHandler: ExpressHandler<{}, {}> = (request, response) => {
+const listPostsHandler: ExpressHandler<ListPostsRequest, ListPostsResponse> = (request, response) => {
     response.send({ posts: db.listPosts() });
 }
 
