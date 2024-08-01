@@ -5,3 +5,5 @@ import {CommentDao} from "./CommentDao";
 import {InMemoryDatastore} from "./memoryDB/InMemoryDatastore";
 
 export interface Datastore extends UserDao, PostDao, LikeDao, CommentDao {}
+
+export const db = new InMemoryDatastore();
