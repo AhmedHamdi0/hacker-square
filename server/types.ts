@@ -1,0 +1,31 @@
+interface User {
+    id: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
+    password: string;
+}
+
+interface Post {
+    id: string;
+    title: string;
+    url: string;
+    userId: string;
+    postedAt: number;
+}
+
+interface Like {
+    userId: string;
+    postId: string;
+}
+
+interface Comment {
+    id: string;
+    userId: string;
+    postId: string;
+    comment: string;
+    postedAt: string;
+}
+
+export { User, Post, Like, Comment };
