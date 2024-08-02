@@ -19,10 +19,10 @@ const createPostHandler: ExpressHandler<CreatePostRequest, CreatePostResponse> =
     // TODO: validate url is new, otherwise add +1 to existing post
     const post: Post = {
         id: crypto.randomUUID(),
-        postedAt: Date.now(),
         title: b.title,
         url: b.url,
-        userId: b.userId
+        userId: b.userId,
+        postedAt: Date.now(),
     }
     await db.createPost(post);
     response.sendStatus(200);
