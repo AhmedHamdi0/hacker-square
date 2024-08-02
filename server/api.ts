@@ -1,21 +1,30 @@
-import {Post} from "./types";
+import { Post, User } from './types';
 
-/* Post APIs */
-// List Posts APIs
+// Post APIs
 export interface ListPostsRequest {}
 export interface ListPostsResponse {
     posts: Post[];
 }
-// Create Post APIs
+
 export type CreatePostRequest = Pick<Post, 'title'|'url'|'userId'>
 export interface CreatePostResponse {}
-// Get Post APIs
+
 export interface GetPostRequest {}
 export interface GetPostResponse {
     post: Post;
 }
 
 
-/* TODO: User APIs */
-/* TODO: Comment APIs */
-/* TODO: Like APIs */
+// User APIs
+export type SignUpRequest = Pick<User, 'firstName'|'lastName'|'username'|'email'|'password'>
+export interface SignUpResponse{}
+
+export interface SignInRequest {
+    login: string; // username or email
+    password: string;
+}
+export type SignInResponse = Pick<User, 'id'|'firstName'|'lastName'|'username'|'email'>
+
+
+// TODO: Comment APIs
+//  TODO: Like APIs
