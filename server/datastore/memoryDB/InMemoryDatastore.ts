@@ -7,7 +7,7 @@ export class InMemoryDatastore implements Datastore {
     private likes: Like[] = [];
     private comments: Comment[] = [];
 
-    createUser(user: User): Promise<void>{
+    createUser(user: User): Promise<void> {
         this.users.push(user);
         return Promise.resolve();
     }

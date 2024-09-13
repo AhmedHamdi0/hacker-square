@@ -37,4 +37,4 @@ export type ExpressHandler<Req, Res> = RequestHandler<
     any
 >
 
-export { User, Post, Like, Comment };
+export type { User, Post, Like, Comment };
