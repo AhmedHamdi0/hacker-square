@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "nodemon --exec ts-node server/server.ts",
+    "start:prod": "pm2 delete hackersquare; pm2 start --name hackersquare \"npx ts-node --transpile-only server/server.ts\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,6 +18,7 @@
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
+    "pm2": "^5.4.2",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
     "typescript": "^5.5.4"
