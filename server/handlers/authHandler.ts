@@ -20,7 +20,7 @@ export const signUpHandler: ExpressHandler<SignUpRequest, SignUpResponse> = asyn
         lastName,
         username,
         email,
-        password,
+        password: hashPassword(password),
     };
 
     await db.createUser(user);
@@ -34,7 +34,7 @@ export const signInHandler: ExpressHandler<SignInRequest, SignInResponse> = asyn
         return response.sendStatus(400);
 
     const existingUser: User | undefined = (await db.getUserByEmail(login) || await db.getUserByUsername(login));
-    if (!existingUser || existingUser.password !== password) {
+    if (!existingUser || existingUser.password !== hashPassword(password)) {
         return response.sendStatus(403);
 
     }
@@ -51,3 +51,10 @@ export const signInHandler: ExpressHandler<SignInRequest, SignInResponse> = asyn
         jwt,
     });
 };
+
+
+function hashPassword(password: string): string {
+    // @ts-ignore
+    return crypto.pbkdf2Sync(password, process.env.PASSWORD_SALT, parseInt(process.env.HASH_ITERATIONS), parseInt(process.env.KEY_LEN),
+        'sha512').toString('hex');
+}

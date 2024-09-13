@@ -10,7 +10,7 @@ const listPostsHandler: ExpressHandler<ListPostsRequest, ListPostsResponse> = as
 
 const createPostHandler: ExpressHandler<CreatePostRequest, CreatePostResponse> = async (request, response) => {
     const b = request.body;
-    if (!b.title || !b.url || !b.userId)
+    if (!b.title || !b.url)
         return response.sendStatus(400);
 
     // TODO: validate user exists
@@ -21,7 +21,7 @@ const createPostHandler: ExpressHandler<CreatePostRequest, CreatePostResponse> =
         id: crypto.randomUUID(),
         title: b.title,
         url: b.url,
-        userId: b.userId,
+        userId: response.locals.userId,
         postedAt: Date.now(),
     }
     await db.createPost(post);
