@@ -1,6 +1,6 @@
-import {RequestHandler} from "express";
+import { RequestHandler } from 'express';
 
-interface User {
+export interface User {
     id: string;
     firstName: string;
     lastName: string;
@@ -9,7 +9,7 @@ interface User {
     password: string;
 }
 
-interface Post {
+export interface Post {
     id: string;
     title: string;
     url: string;
@@ -17,12 +17,12 @@ interface Post {
     postedAt: number;
 }
 
-interface Like {
+export interface Like {
     userId: string;
     postId: string;
 }
 
-interface Comment {
+export interface Comment {
     id: string;
     userId: string;
     postId: string;
@@ -30,11 +30,15 @@ interface Comment {
     postedAt: string;
 }
 
+type WithError<T> = T & {error: string};
+
 export type ExpressHandler<Req, Res> = RequestHandler<
     string,
-    Partial<Res>,
+    Partial<WithError<Res>>,
     Partial<Req>,
     any
 >
 
-export type { User, Post, Like, Comment };
+export interface JwtObject {
+    userId: string
+}

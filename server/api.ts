@@ -17,13 +17,18 @@ export interface GetPostResponse {
 
 // User APIs
 export type SignUpRequest = Pick<User, 'firstName'|'lastName'|'username'|'email'|'password'>
-export interface SignUpResponse{}
+export interface SignUpResponse{
+    jwt: string;
+}
 
 export interface SignInRequest {
     login: string; // username or email
     password: string;
 }
-export type SignInResponse = Pick<User, 'id'|'firstName'|'lastName'|'username'|'email'>
+export type SignInResponse = {
+    user: Pick<User, 'id'|'firstName'|'lastName'|'username'|'email'>;
+    jwt: string;
+}
 
 
 // TODO: Comment APIs
