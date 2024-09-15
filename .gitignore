@@ -131,3 +131,4 @@ dist
 
 .idea/
 server/datastore/sql/hacker-square.sqlite
+process.log

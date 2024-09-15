@@ -1,4 +1,4 @@
-import { Post } from "../../types";
+import { Post } from "../../src/types";
 
 export interface PostDao {
     createPost(post: Post): Promise<void>;

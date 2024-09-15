@@ -1,5 +1,5 @@
-import { ExpressHandler } from '../types';
-import { verifyJwt } from '../auth';
+import { ExpressHandler } from '../src/types';
+import { verifyJwt } from '../src/auth';
 import { db } from '../datastore/Datastore';
 
 export const authMiddleware: ExpressHandler<any, any> = async (request, response, next) => {

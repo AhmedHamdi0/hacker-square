@@ -1,5 +1,6 @@
 import { Datastore } from '../Datastore';
-import { Comment, Like, Post, User } from '../../types';
+// @ts-ignore
+import { Comment, Like, Post, User } from '@hackersquare/shared';
 import sqlite3 from 'sqlite3';
 import { Database, open } from 'sqlite';
 import path from 'path';

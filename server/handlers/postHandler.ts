@@ -1,8 +1,9 @@
 import { db } from '../datastore/Datastore';
-import { ExpressHandler, Post } from '../types';
 import crypto from 'crypto';
-import { CreatePostRequest, CreatePostResponse, ListPostsRequest, ListPostsResponse } from '../api';
-
+import { CreatePostRequest, CreatePostResponse, ListPostsRequest, ListPostsResponse } from '../src/api';
+import { ExpressHandler } from '../src/types';
+// @ts-ignore
+import { Post } from "@hackersquare/shared"
 
 const listPostsHandler: ExpressHandler<ListPostsRequest, ListPostsResponse> = async (request, response) => {
     response.send({ posts: await db.listPosts() });

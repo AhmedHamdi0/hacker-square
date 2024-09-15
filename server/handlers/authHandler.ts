@@ -1,8 +1,10 @@
-import { ExpressHandler, User } from '../types';
-import { SignInRequest, SignInResponse, SignUpRequest, SignUpResponse } from '../api';
+import { ExpressHandler } from '../src/types';
+import { SignInRequest, SignInResponse, SignUpRequest, SignUpResponse } from '../src/api';
 import { db } from '../datastore/Datastore';
 import crypto from 'crypto';
-import { signJwt } from '../auth';
+import { signJwt } from '../src/auth';
+// @ts-ignore
+import { User } from '@hackersquare/shared';
 
 
 export const signUpHandler: ExpressHandler<SignUpRequest, SignUpResponse> = async (request, response) => {
